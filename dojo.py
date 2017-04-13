@@ -15,6 +15,7 @@ class Room(Dojo):
 		self.list_of_occupants=[]
 		self.room_name=room_name
 		self.room_type=room_type
+		self.max_occupants=""
 
 	
 

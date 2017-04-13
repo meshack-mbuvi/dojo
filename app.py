@@ -5,8 +5,9 @@ Usage:
     Dojo print_room <room_name>
     Dojo print_allocations [<filename>]
     Dojo print_unallocations [<filename>]
+    Dojo print_unallocations [<filename>]
     Dojo (-i | --interactive)
-    Dojo -h | --help
+    Dojo (-h | --help)
 Options:
     -o, --output  Save to a txt file
     -i, --interactive  Interactive Mode
@@ -87,6 +88,15 @@ class MyInteractive (cmd.Cmd):
         implementation=Implementation()
 
         implementation.print_room(args['<room_name>'])
+
+    @docopt_cmd
+    def do_print_unallocations(self,args):
+        #person.add_person(name,person_type)
+        """Usage: print_unallocations [<filename>] """
+        implementation=Implementation()
+        filename_to_store_allocations=args['<filename>']
+
+        implementation.print_allocations(filename_to_store_allocations)
 
     @docopt_cmd
     def do_print_allocations(self,args):

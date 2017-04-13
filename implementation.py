@@ -25,6 +25,7 @@ class Implementation():
 		"""This function creates a new room of type office or livingspace"""
 		#First check that room name and type do not have digits
 		if self.hasdigits(room_name) or self.hasdigits(room_type) :
+			print("Not a valid room in our context")
 			return ("Not a valid room in our context")
 		#check whether room_name is in the list of existing rooms in dojo
 
@@ -49,6 +50,7 @@ class Implementation():
 				print ("A Living Space called {} has been successfully created!".format(room_name))
 				return room_object
 			else:
+				print("Not a valid room")
 				return ("Not a valid room")
 
 	def allocate_office(self,person_object):
@@ -137,7 +139,7 @@ class Implementation():
 			#create a single name
 			temp_name=" ".join([people.firstname,people.secondname])
 			names_people_in_system.append(temp_name)
-			print names_people_in_system
+			print (names_people_in_system)
 
 
 		#Ensure the person is not in system already
@@ -173,6 +175,7 @@ class Implementation():
 			return person
 
 		else:
+			print("Not a valid person in our context")
 			return "Not a valid person in our context"
 
 	def print_room(self,room_name):
@@ -237,7 +240,7 @@ class Implementation():
 					                     for people in self.all_people if people.office_name==""])
 		if filename!="":
 			f=open("{}".format(filename),"w+")
-			f.write("{}\n".format(room_object.room_name))
+			f.write("{}\n".format(room_object.room_name.upper()))
 			f.write("-----------------------\n")
 			for person in allocations:
 				f.write(person)
